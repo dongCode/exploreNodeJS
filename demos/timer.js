@@ -2,12 +2,11 @@
 setImmediate(() => {
     console.log('setImmediate');
 })
-// 中间执行
+// 当时间设置为0时在中间执行 
 setTimeout(() => {
-    console.log('timerout');
-
-})
-// 循环调用可能导致后面的不能执行了
+    console.log('timeout');
+}, 1000)
+// 循环调用可能导致后面的异步队列不能执行了
 process.nextTick(() => {
     console.log('nextTick');
     process.nextTick(() => {
